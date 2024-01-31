@@ -13,5 +13,5 @@ int main()
         sum += subjects[i];
     }
 
-    cout << "The average of all the subjects is: " << sum;
+    cout << "The average of all the subjects is: " << sum / 5;
 }
