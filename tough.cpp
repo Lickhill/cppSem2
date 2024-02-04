@@ -1,21 +1,23 @@
 #include <iostream>
 using namespace std;
 
-class cube
+class sum
 {
 public:
-    int side;
-
-    int getVol()
-    {
-        return side * side * side;
-    }
+    int num1, num2;
 };
 
+class res : public sum
+{
+
+public:
+    int add(int num1, int num2)
+    {
+        return num1 + num2;
+    }
+};
 int main()
 {
-    cube mycube;
-    mycube.side = 4;
-
-    cout << mycube.getVol();
+    res obj;
+    cout << obj.add(5, 6);
 }
