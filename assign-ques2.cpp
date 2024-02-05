@@ -1,3 +1,4 @@
+///assign 1 ques 2
 #include <iostream>
 #include <string>
 using namespace std;
@@ -36,5 +37,6 @@ int main()
     getline(cin, word);
     programming obj(word);
     obj.function();
+    
     
 }

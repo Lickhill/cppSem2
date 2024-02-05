@@ -1,23 +1,26 @@
 #include <iostream>
 using namespace std;
-
-class sum
+// first name space
+namespace first_space
 {
-public:
-    int num1, num2;
-};
-
-class res : public sum
-{
-
-public:
-    int add(int num1, int num2)
+    void func1()
     {
-        return num1 + num2;
+        cout << "Inside first_space" << endl;
     }
-};
+}
+// second name space
+namespace second_space
+{
+    void func2()
+    {
+        cout << "Inside second_space" << endl;
+    }
+}
+using namespace second_space;
 int main()
 {
-    res obj;
-    cout << obj.add(5, 6);
+    // This calls function from first name space.
+    first_space::func1();
+    func2();
+    return 0;
 }
