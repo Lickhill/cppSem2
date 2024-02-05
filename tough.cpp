@@ -1,26 +1,26 @@
 #include <iostream>
 using namespace std;
-// first name space
-namespace first_space
+class A
 {
-    void func1()
+public:
+    // constructor
+    A()
     {
-        cout << "Inside first_space" << endl;
+        cout << "Constructor called\n";
     }
-}
-// second name space
-namespace second_space
-{
-    void func2()
+
+    // destructor
+    ~A()
     {
-        cout << "Inside second_space" << endl;
+        cout << "Destructor called\n";
     }
-}
-using namespace second_space;
+};
 int main()
 {
-    // This calls function from first name space.
-    first_space::func1();
-    func2();
-    return 0;
-}
+    A obj1; // Constructor Called
+
+    for (int i = 0; i < 3; i++)
+        A obj2; // Constructor Called
+
+    A obj3; // Destructor Called for obj2
+} // Destructor called for obj1
