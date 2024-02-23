@@ -1,26 +1,37 @@
 #include <iostream>
 using namespace std;
-class A
+
+class traverse
 {
 public:
-    // constructor
-    A()
+    int size;
+    int arr[];
+
+    void get()
     {
-        cout << "Constructor called\n";
+        cout << "Enter size of array: ";
+        cin >> size;
+        cout << "Enter elements of array: ";
+        for (int i = 0; i < size; i++)
+        {
+            cin >> arr[i];
+        }
+        arr[size];
     }
 
-    // destructor
-    ~A()
+    void
+    printing()
     {
-        cout << "Destructor called\n";
+        for (int i = 0; i < size; i++)
+        {
+            cout << arr[i] << "\t";
+        }
     }
 };
+
 int main()
 {
-    A obj1; // Constructor Called
-
-    for (int i = 0; i < 3; i++)
-        A obj2; // Constructor Called
-
-    A obj3; // Destructor Called for obj2
-} // Destructor called for obj1
+    traverse obj;
+    obj.get();
+    obj.printing();
+}
