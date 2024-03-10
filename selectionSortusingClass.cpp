@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class SelectionSort
+class AllSorting
 {
 public:
     int size = 0;
@@ -21,10 +21,26 @@ public:
         {
             cin >> arr[i];
         }
-        sorting(arr);
+        cout << "Choose a number: \n 1 for bubble sort \n 2 for selection sort \n 3 for insertion sort\n";
+        int choice;
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            bubbleSort(arr);
+            break;
+        case 2:
+            selectionSort(arr);
+            break;
+        case 3:
+            insertionSort(arr);
+            break;
+        default:
+            cout << "Invalid choice";
+        }
     }
 
-    void sorting(int arr[])
+    void selectionSort(int arr[])
     {
         int min = 0;
         for (int i = 0; i < size; i++)
@@ -44,6 +60,44 @@ public:
         printing(arr);
     }
 
+    void bubbleSort(int arr[])
+    {
+        for (int i = 0; i < size - 1; i++)
+        {
+            for (int j = 0; j < size - i - 1; j++)
+            {
+                if (arr[j] > arr[j + 1])
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        printing(arr);
+    }
+
+    void insertionSort(int arr[])
+    {
+        for (int i = 1; i < size; i++)
+        {
+            cout << "Pass " << i << ": ";
+            int temp = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > temp)
+            {
+                cout << "Swapping of " << arr[j] << " and " << arr[j + 1] << "\n";
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = temp;
+            printing(arr);
+            cout << "\n"
+                 << "-----------------------------------"
+                 << "\n";
+        }
+    }
+
     void printing(int arr[])
     {
         cout << "The sorted array is";
@@ -56,7 +110,7 @@ public:
 
 int main()
 {
-    SelectionSort obj;
+    AllSorting obj;
     obj.getSize();
     return 0;
 }
